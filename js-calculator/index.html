@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<script src="jquery.min.js"></script>
+		<script type="text/javascript">
+
+		var a = 0
+		var b = 0
+
+		function genereeriNumber() {
+			return Math.round(Math.random() * 10)
+		}
+
+		function genereeriYlesanne() {
+			$("#sisend").focus()
+
+  			a = genereeriNumber()
+  			$("#esimene").val(a)
+  			
+  			b = genereeriNumber()
+  			$("#teine").val(b)
+		}
+
+		
+
+		$( document ).ready(function() {
+			genereeriYlesanne();
+		});
+
+		
+		function kontrolliVastust(event) {
+			if (event.keyCode == 13) {
+				var sisend = $("#sisend").val()
+
+				if (a + b == sisend) {
+					$("#vastus").text("Tubli")
+					$("#vastus").css("color", "green");
+				}
+				else {
+					$("#vastus").text("Vale - "+a+" + "+b+" ei ole "+sisend)
+					$("#vastus").css("color", "red");
+				}
+
+				$("#sisend").val("")
+				genereeriYlesanne();
+			}
+		}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" id="esimene">
+		+
+		<input type="text" id="teine">
+		=
+		<input type="text" id="sisend" onKeyPress="kontrolliVastust(event)">
+		<span id="vastus" />
+	</body>
+</html>
