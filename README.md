@@ -1,2 +1,2 @@
-# koprad-2016-zt
+# Kobraste külaskäik ZeroTurnaroundis 2016
 Kobraste Külaskäik
