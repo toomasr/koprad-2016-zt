@@ -31,4 +31,63 @@ Kauguse arvutamiseks kasutame ühe kavala geomeetrilise funktsiooni, mida saame 
 
 Kui sa hakkad ehitama oma kaardirakendust, mitte sellest failist, mis siin repositooriumis on, siis kaartide javascripti teegi saamiseks sul on vaja genereerida API_KEY. Seda saad teha [selle juhendi järgi](https://developers.google.com/maps/documentation/javascript/get-api-key), või kasuta minu oma, mis siin samas repositooriumis on: AIzaSyC5AN4eKkbANZ8_peU4dEudZ5Q5hKaXRCU
 
+## A Song of JavaScript and Sanity: Liftide mäng
 
+Viimane ülesanne mis me teeme on liftide mäng: [play.elevatorsaga.com](http://play.elevatorsaga.com/). Selles mängus pead kirjutama koodi, mis juhib lifti või mitu, ning transporteerib inimesi edasi-tagasi. 
+
+![Elevator game screenshot](https://dl.dropboxusercontent.com/u/17251331/elevatorsaga-screenshot.png)
+
+Kui sa käivitad liftide simulatsiooni, vaikimisi programmiga, siis esimesel tasemel ei suuda see program transporteerida 20 inimest ühe minutiga, ning sa ei saa edasi. Selleks et lift töötaks parem on vaja selle koodi muuta. Kirjuta koodiga lahtri sisse see lõik:
+
+```javascript
+{
+    init: function(elevators, floors) {
+        var elevator = elevators[0]; // Let's use the first elevator
+
+        // Whenever the elevator is idle (has no more queued destinations) ...
+        elevator.on("idle", function() {
+            // let's go to all the floors (or did we forget one?)
+            elevator.goToFloor(0);
+            elevator.goToFloor(1);
+            elevator.goToFloor(2);
+        });
+    },
+    update: function(dt, elevators, floors) {
+        // We normally don't need to do anything here
+    }
+}
+```
+
+Proovi nüüd simulatsiooni taaskäivitada. Mõne katse jooksul peaks lift oskama 20 inimest transporteerida, ning oleme järgmisel tasemel. 
+
+Juhendi kuidas lifti programmeerida, ning millised operatsioonid ta oskab teha leiad [siin](http://play.elevatorsaga.com/documentation.html). 
+
+Ära ole kurb, kui sul ei õnnestu mõni taseme liftide probleemi lahendada, need on päris keerulised. Tegelt. Ma ei saanud kaugemale kui 4. 
+
+Liftide mängu arendaja lahendus on umbes selline, mis näitab kuidas kasutada korruste ning liftide sündmusi:
+
+```javascript
+{
+    init: function(elevators, floors) {
+        var rotator = 0; //järgmise lifti indeks
+        for (i = 0; i < floors.length; i++) {
+          var floor = floors[i]; //võta korrus
+          floor.on("up_button_pressed down_button_pressed", function() { // kui korruse on nupp vajutatud
+            var elevator = elevators[(rotator++) % elevators.length]; // võta järgmine elevator
+            elevator.goToFloor(floor.level); // saata elevator too korrusele
+          }); 
+        }
+        for (i = 0; i < elevators.length; i++) { // iga lifti jaoks
+          var elevator = elevators[i]; // võta lift
+          elevator.on("floor_button_pressed", function(floorNum) { // kui liftis on nupp vajutatud
+            elevator.goToFloor(floorNum); // mine too korrusele
+          });
+          elevator.on("idle", function() { // kui ei lähe praegu kuhugi
+            elevator.goToFloor(0); // sõida 0-korrusele.
+          });
+        }
+    },
+    update: function(dt, elevators, floors) {
+    }
+}
+```
