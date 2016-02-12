@@ -12,7 +12,7 @@ Selle praktilise osa jooksul ehitame väikest kaardirakendust.
 
 Rakenduse leiad selles repositooriumi kaustas "[js-map-demo](https://github.com/toomasr/koprad-2016-zt/tree/master/js-map-demo)". Programmeerimiskeeleks on jälle JavaScript, millega saime just natuke tuttavam. 
 
-Samas, kuna see rakendus imiteerib reaalse tarkvara, ei kirjutame me kogu funktsionaalsust nullist, vaid kasutame olemasolevad teenused. Näiteks, kaart ise tuleb [Google Maps](maps.google.com) poolt, ning me ainult ehitame selle peal oma funktsionaalsust. 
+Samas, kuna see rakendus imiteerib reaalse tarkvara, ei kirjutame me kogu funktsionaalsust nullist, vaid kasutame olemasolevad teenused. Näiteks, kaart ise tuleb [Google Maps](https://maps.google.com) poolt, ning me ainult ehitame selle peal oma funktsionaalsust. 
 
 Google Maps pakkub programeerijatele väga põhilist API -- application program interface, ehk rakenduse kasutajaliides, mille kaudu programmid saavad kaarte kasutada. Selle kirjelduse leiad [Google Maps dokumentatsiooni lehel](https://developers.google.com/maps/documentation/javascript/). 
 
