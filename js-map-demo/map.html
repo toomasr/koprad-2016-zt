@@ -33,85 +33,20 @@
 
     <script>
       var map;
-      var markerA = null, markerB = null; // we'll operate on 2 markers
-      var line = null; // connect markers with a line
-      function init() { //
+      function init() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 58.381, lng: 26.72}, // ~ Tartu
+          center: {lat: 0, lng: 0},
           zoom: 16
         });
-        // map.addListener('click', function(event) {
-        //   handleClick(event.latLng);
-        // });
+        map.addListener('click', function(event) {
+          handleClick(event.latLng);
+        });
       }
 
+      // selle funktsiooni nimeks võiks olla "reageeri".
       function handleClick(location) {
-        if (markerA === null) {
-          // markerA is null, so this is the first click on the map
-          markerA = new google.maps.Marker({
-            label: 'A',
-            draggable:true,
-            position: location,
-            map: map
-
-          });
-          markerA.addListener('dragend', function(event) {
-            if (markerB === null) {
-              return; // if there's no markerB on the map, do nothing.
-            }
-            removeLine();
-            drawLine();
-            calculateDistance();
-          });
-          return; // if we handled the click, return from the function not to execute further.
-        }
-
-        if (markerB === null) {
-          markerB = new google.maps.Marker({
-            label: 'B',
-            draggable:true,
-            position: location,
-            map: map
-          });
-          markerB.addListener('dragend', function(event) {
-            removeLine();
-            drawLine();
-            calculateDistance();
-          });
-
-          drawLine(); // add the line
-          calculateDistance(); // update the distance text
-          return;
-        }
+        alert("X: " + location);
       }
-
-      function removeLine() {
-        if (line !== null) {
-          line.setMap(null);
-        }
-      }
-
-      function drawLine() {
-       if (markerB === null) {
-         return;
-       }
-       line = new google.maps.Polyline({
-         path: [markerA.position, markerB.position],
-         geodesic: true,
-         strokeColor: '#FF0000',
-         strokeOpacity: 1.0,
-         strokeWeight: 2
-       });
-       line.setMap(map);
-      }
-
-      function calculateDistance() {
-        // this uses a function from a geometry library Google Maps API offers.
-        // see: https://developers.google.com/maps/documentation/javascript/geometry?csw=1#Distance
-        var d = google.maps.geometry.spherical.computeDistanceBetween(markerA.position, markerB.position);
-        document.getElementById("floating-panel").innerHTML = "|AB| = " + d + " m";
-      }
-
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5AN4eKkbANZ8_peU4dEudZ5Q5hKaXRCU&callback=init&libraries=geometry""></script>
