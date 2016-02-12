@@ -8,7 +8,7 @@ Kobraste Külaskäik
 
 ## js-map-demo
 Selle praktilise osa jooksul ehitame väikest kaardirakendust. 
-![Map demo screenshot](https://dl.dropboxusercontent.com/u/17251331/js-map-demo-screenshot.png)
+![Map demo screenshot](https://cloud.githubusercontent.com/assets/426039/13016688/ef6a8350-d1c8-11e5-8db2-79c3d606192d.png)
 
 Rakenduse leiad selles repositooriumi kaustas "[js-map-demo](https://github.com/toomasr/koprad-2016-zt/tree/master/js-map-demo)". Programmeerimiskeeleks on jälle JavaScript, millega saime just natuke tuttavam. 
 
@@ -20,7 +20,7 @@ Programmi kirjutamist me ei alusta nullist ka, vaid kasutame Google poolt pakutu
 
 Näiteks me valime [lihtsa kaardi näidise](https://developers.google.com/maps/documentation/javascript/examples/map-simple), valime kaardi all nupu: "JavaScript + HTML" ning kopeerime kogu tekstivälja sisu redaktorisse: 
 
-![How to get Google maps Javascript sample code](https://dl.dropboxusercontent.com/u/17251331/how-to-use-maps-samples.png)
+![How to get Google maps Javascript sample code](https://cloud.githubusercontent.com/assets/426039/13016687/ef5df946-d1c8-11e5-8879-74fff2ef7feb.png)
 
 Lisaks meil oleks vaja kaardile õhupalle (markerid) saada, joonistada 1 joont, ning lisada paneeli tekstiga. Need elemendid saad leida ning muuta sobivamaks nendest näidisest:
 * [Kaardile klikkimise haldamine](https://developers.google.com/maps/documentation/javascript/examples/event-simple)
@@ -35,7 +35,7 @@ Kui sa hakkad ehitama oma kaardirakendust, mitte sellest failist, mis siin repos
 
 Viimane ülesanne mis me teeme on liftide mäng: [play.elevatorsaga.com](http://play.elevatorsaga.com/). Selles mängus pead kirjutama koodi, mis juhib lifti või mitu, ning transporteerib inimesi edasi-tagasi. 
 
-![Elevator game screenshot](https://dl.dropboxusercontent.com/u/17251331/elevatorsaga-screenshot.png)
+![Elevator game screenshot](https://cloud.githubusercontent.com/assets/426039/13016686/ef43cce2-d1c8-11e5-80aa-e47ebb1bc7f5.png)
 
 Kui sa käivitad liftide simulatsiooni, vaikimisi programmiga, siis esimesel tasemel ei suuda see program transporteerida 20 inimest ühe minutiga, ning sa ei saa edasi. Selleks et lift töötaks parem on vaja selle koodi muuta. Kirjuta koodiga lahtri sisse see lõik:
 
