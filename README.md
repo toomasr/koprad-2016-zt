@@ -4,6 +4,8 @@ Kobraste Külaskäik
 ## JavaScripti Õppimine
 
 Üks koht kus õppida JavaScripti on näiteks [Code Academy](https://www.codecademy.com/learn/javascript).
+HTMList saab õppida ka Code Academy kursusest: [HTML alused](https://www.codecademy.com/courses/html-one-o-one)
+Ning kui tahad rohkem teada sellest kuidas interneti leheküljed töötavad, ning HTML ja CSS-ist (lehtedele stiilide määramine), siis on olemas [veebi kursus](https://www.codecademy.com/learn/web). 
 
 ## JavaScript Kaardi Demo
 
