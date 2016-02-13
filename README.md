@@ -1,6 +1,10 @@
 # Kobraste külaskäik ZeroTurnaroundis 2016
 Kobraste Külaskäik
 
+## JavaScripti Õppimine
+
+Üks koht kus õppida JavaScripti on näiteks [Code Academy](https://www.codecademy.com/learn/javascript).
+
 ## JavaScript Kaardi Demo
 
 Selle praktilise osa jooksul ehitame väikese kaardirakenduse.
